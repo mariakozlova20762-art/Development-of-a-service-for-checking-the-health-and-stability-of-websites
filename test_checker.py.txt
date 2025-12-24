@@ -1,0 +1,32 @@
+# test_checker.py
+import asyncio
+import sys
+import os
+
+# Добавляем папку src в путь Python
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+from checker import check_website, check_multiple_websites
+
+async def test_single():
+    print("Тестируем одиночный сайт...")
+    result = await check_website("https://example.com")
+    print(result)
+    
+async def test_multiple():
+    print("\nТестируем несколько сайтов...")
+    urls = [
+        "https://google.com",
+        "https://github.com",
+        "https://example.com",
+        "https://yandex.ru"
+    ]
+    results = await check_multiple_websites(urls)
+    
+    for result in results:
+        print(f"{result['url']}: {result['status']} ({result['status_code']}) - {result['response_time_ms']}ms")
+
+if __name__ == "__main__":
+    # Запускаем асинхронные тесты
+    asyncio.run(test_single())
+    asyncio.run(test_multiple())

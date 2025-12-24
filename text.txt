@@ -1,0 +1,16 @@
+website-health-monitor/
+├── Dockerfile
+├── README.md
+├── .gitignore
+├── .dockerignore
+├── .pre-commit-config.yaml
+├── requirements.txt
+├── src/
+│   ├── main.py              # точка входа
+│   ├── api.py               # HTTP endpoints
+│   ├── checker.py           # логика проверки сайтов
+│   ├── models.py            # Pydantic модели
+│   ├── config.py            # переменные окружения
+│   └── init.py
+└── tests/
+    └── test_checker.py

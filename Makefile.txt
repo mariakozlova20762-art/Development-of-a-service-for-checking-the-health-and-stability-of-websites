@@ -1,0 +1,21 @@
+# Makefile
+.PHONY: build run stop logs test clean
+
+build:
+	docker-compose build
+
+run:
+	docker-compose up -d
+
+stop:
+	docker-compose down
+
+logs:
+	docker-compose logs -f
+
+test:
+	docker-compose run --rm web python -m pytest tests/
+
+clean:
+	docker system prune -f
+	docker volume prune -f
