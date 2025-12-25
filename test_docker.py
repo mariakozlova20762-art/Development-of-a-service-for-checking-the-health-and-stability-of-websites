@@ -39,4 +39,5 @@ def test_docker_container():
 
 if __name__ == "__main__":
     success = test_docker_container()
+
     sys.exit(0 if success else 1)
