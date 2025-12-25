@@ -29,4 +29,5 @@ async def test_multiple():
 if __name__ == "__main__":
     # Запускаем асинхронные тесты
     asyncio.run(test_single())
+
     asyncio.run(test_multiple())
